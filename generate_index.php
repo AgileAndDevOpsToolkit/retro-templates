@@ -4,7 +4,10 @@
 // Objectif : Générer un fichier index.html avec les images de chaque dossier
 
 // Dossiers et fichiers à ignorer
-$ignore = ['.', '..', 'generate_index.php', 'index.html', '.git'];
+$ignore = ['.', '..', 'generate_index.php', 'index.html', '.git', 'assets'];
+
+// URL de la chaîne YouTube
+$youtube_url = "https://www.youtube.com/@AgileToolkit";
 
 // Récupérer les dossiers (types de rétro)
 $dirs = array_filter(scandir(__DIR__), function($item) use ($ignore) {
@@ -18,7 +21,7 @@ ob_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templates de Rétrospective</title>
+    <title>Templates de Rétrospectives Agiles</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
         h1 { text-align: center; }
@@ -60,7 +63,14 @@ ob_start();
     </style>
 </head>
 <body>
-    <h1>Galerie de Templates de Rétrospective</h1>
+    <h1>Galerie de Templates de Rétrospectives Agiles</h1>
+    
+    <div style="text-align: center; margin: 20px 0; display: flex; justify-content: center; align-items: center;">
+        <a href="<?= htmlspecialchars($youtube_url) ?>" target="_blank" style="display: flex; align-items: center;">
+            <img src="./assets/Youtube_logo.png" alt="YouTube" style="margin-right: 5px; height: 18px; width: auto; display: block;">
+            <span style="font-size: 18px;">Youtube Agile Toolkit</span>
+        </a>
+    </div>
 
 <?php foreach ($dirs as $dir): ?>
     <h2><?= htmlspecialchars($dir) ?></h2>
