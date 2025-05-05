@@ -77,7 +77,10 @@ ob_start();
     <div class="gallery">
         <?php 
         $images = glob("$dir/*.{png,jpg,jpeg,gif}", GLOB_BRACE);
-        foreach ($images as $img): ?>
+        foreach ($images as $img):
+            // Ignorer les images dont le nom commence par un underscore
+            if (strpos(basename($img), '_') === 0) continue;
+        ?>
             <img src="<?= htmlspecialchars($img) ?>" alt="<?= basename($img) ?>" onclick="openLightbox(this.src)">
         <?php endforeach; ?>
     </div>
