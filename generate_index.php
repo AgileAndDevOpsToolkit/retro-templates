@@ -1,7 +1,7 @@
 <?php
 
 // Script : generate_index.php
-// Objectif : Générer un fichier index.html avec les images de chaque dossier
+// Objectif : Générer un fichier index.html avec les images de chaque dossier + lien de téléchargement zip associé
 
 // Dossiers et fichiers à ignorer
 $ignore = ['.', '..', 'generate_index.php', 'index.html', '.git', 'assets'];
@@ -26,22 +26,34 @@ ob_start();
         body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
         h1 { text-align: center; }
         h2 { margin-top: 40px; color: #333; text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .gallery img { 
-            max-width: 300px; 
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 300px;
+        }
+        .card img {
+            max-width: 300px;
             max-height: 300px;
             width: auto;
             height: auto;
-            object-fit: contain;
-            border: 2px solid #ddd; 
-            border-radius: 8px; 
-            transition: transform 0.3s; 
-            cursor: pointer; 
-            display: block;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
-        .gallery img:hover { transform: scale(1.05); }
-        
-        /* Lightbox */
+        .card img:hover { transform: scale(1.05); }
+        .download-link {
+            margin-top: 8px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 0.9em;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -77,11 +89,20 @@ ob_start();
     <div class="gallery">
         <?php 
         $images = glob("$dir/*.{png,jpg,jpeg,gif}", GLOB_BRACE);
-        foreach ($images as $img):
+        foreach ($images as $img): 
             // Ignorer les images dont le nom commence par un underscore
             if (strpos(basename($img), '_') === 0) continue;
+
+            $basename = pathinfo($img, PATHINFO_FILENAME);
+            $zipPath = "$dir/$basename.zip";
+            $hasZip = file_exists($zipPath);
         ?>
-            <img src="<?= htmlspecialchars($img) ?>" alt="<?= basename($img) ?>" onclick="openLightbox(this.src)">
+            <div class="card">
+                <img src="<?= htmlspecialchars($img) ?>" alt="<?= basename($img) ?>" onclick="openLightbox(this.src)">
+                <?php if ($hasZip): ?>
+                    <a class="download-link" href="<?= htmlspecialchars($zipPath) ?>" download>Télécharger les images</a>
+                <?php endif; ?>
+            </div>
         <?php endforeach; ?>
     </div>
 <?php endforeach; ?>

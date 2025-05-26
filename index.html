@@ -8,22 +8,34 @@
         body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
         h1 { text-align: center; }
         h2 { margin-top: 40px; color: #333; text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .gallery img { 
-            max-width: 300px; 
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 300px;
+        }
+        .card img {
+            max-width: 300px;
             max-height: 300px;
             width: auto;
             height: auto;
-            object-fit: contain;
-            border: 2px solid #ddd; 
-            border-radius: 8px; 
-            transition: transform 0.3s; 
-            cursor: pointer; 
-            display: block;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
-        .gallery img:hover { transform: scale(1.05); }
-        
-        /* Lightbox */
+        .card img:hover { transform: scale(1.05); }
+        .download-link {
+            margin-top: 8px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 0.9em;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -56,32 +68,67 @@
 
     <h2>4L</h2>
     <div class="gallery">
-                    <img src="4L/ChatGPT Image 26 avr. 2025, 21_46_46.png" alt="ChatGPT Image 26 avr. 2025, 21_46_46.png" onclick="openLightbox(this.src)">
-                    <img src="4L/ChatGPT Image 26 avr. 2025, 21_46_56.png" alt="ChatGPT Image 26 avr. 2025, 21_46_56.png" onclick="openLightbox(this.src)">
-                    <img src="4L/ChatGPT Image 26 avr. 2025, 21_47_36.png" alt="ChatGPT Image 26 avr. 2025, 21_47_36.png" onclick="openLightbox(this.src)">
+                    <div class="card">
+                <img src="4L/ChatGPT Image 26 avr. 2025, 21_46_46.png" alt="ChatGPT Image 26 avr. 2025, 21_46_46.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="4L/ChatGPT Image 26 avr. 2025, 21_46_56.png" alt="ChatGPT Image 26 avr. 2025, 21_46_56.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="4L/ChatGPT Image 26 avr. 2025, 21_47_36.png" alt="ChatGPT Image 26 avr. 2025, 21_47_36.png" onclick="openLightbox(this.src)">
+                            </div>
+            </div>
+    <h2>Foot</h2>
+    <div class="gallery">
+                    <div class="card">
+                <img src="Foot/2025-05-26 01_55_53-Retro Foot_Klaxoon.png" alt="2025-05-26 01_55_53-Retro Foot_Klaxoon.png" onclick="openLightbox(this.src)">
+                                    <a class="download-link" href="Foot/2025-05-26 01_55_53-Retro Foot_Klaxoon.zip" download>Télécharger les images</a>
+                            </div>
             </div>
     <h2>PositiNegatif</h2>
     <div class="gallery">
-                    <img src="PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_37.png" alt="ChatGPT Image 26 avr. 2025, 21_48_37.png" onclick="openLightbox(this.src)">
-                    <img src="PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_48.png" alt="ChatGPT Image 26 avr. 2025, 21_48_48.png" onclick="openLightbox(this.src)">
+                    <div class="card">
+                <img src="PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_37.png" alt="ChatGPT Image 26 avr. 2025, 21_48_37.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_48.png" alt="ChatGPT Image 26 avr. 2025, 21_48_48.png" onclick="openLightbox(this.src)">
+                            </div>
             </div>
     <h2>Speedboat</h2>
     <div class="gallery">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_42_39.png" alt="ChatGPT Image 26 avr. 2025, 21_42_39.png" onclick="openLightbox(this.src)">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_43_16.png" alt="ChatGPT Image 26 avr. 2025, 21_43_16.png" onclick="openLightbox(this.src)">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_45_18.png" alt="ChatGPT Image 26 avr. 2025, 21_45_18.png" onclick="openLightbox(this.src)">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_46_05.png" alt="ChatGPT Image 26 avr. 2025, 21_46_05.png" onclick="openLightbox(this.src)">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" alt="ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" onclick="openLightbox(this.src)">
-                    <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_47_57.png" alt="ChatGPT Image 26 avr. 2025, 21_47_57.png" onclick="openLightbox(this.src)">
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_42_39.png" alt="ChatGPT Image 26 avr. 2025, 21_42_39.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_43_16.png" alt="ChatGPT Image 26 avr. 2025, 21_43_16.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_45_18.png" alt="ChatGPT Image 26 avr. 2025, 21_45_18.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_46_05.png" alt="ChatGPT Image 26 avr. 2025, 21_46_05.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" alt="ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="Speedboat/ChatGPT Image 26 avr. 2025, 21_47_57.png" alt="ChatGPT Image 26 avr. 2025, 21_47_57.png" onclick="openLightbox(this.src)">
+                            </div>
             </div>
     <h2>StartStopContinue</h2>
     <div class="gallery">
-                    <img src="StartStopContinue/ChatGPT Image 26 avr. 2025, 21_48_23.png" alt="ChatGPT Image 26 avr. 2025, 21_48_23.png" onclick="openLightbox(this.src)">
+                    <div class="card">
+                <img src="StartStopContinue/ChatGPT Image 26 avr. 2025, 21_48_23.png" alt="ChatGPT Image 26 avr. 2025, 21_48_23.png" onclick="openLightbox(this.src)">
+                            </div>
             </div>
     <h2>TroisPetitsCochons</h2>
     <div class="gallery">
-                    <img src="TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_44_48.png" alt="ChatGPT Image 26 avr. 2025, 21_44_48.png" onclick="openLightbox(this.src)">
-                    <img src="TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_48_08_modifié.png" alt="ChatGPT Image 26 avr. 2025, 21_48_08_modifié.png" onclick="openLightbox(this.src)">
+                    <div class="card">
+                <img src="TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_44_48.png" alt="ChatGPT Image 26 avr. 2025, 21_44_48.png" onclick="openLightbox(this.src)">
+                            </div>
+                    <div class="card">
+                <img src="TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_48_08_modifié.png" alt="ChatGPT Image 26 avr. 2025, 21_48_08_modifié.png" onclick="openLightbox(this.src)">
+                            </div>
             </div>
 
 <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
