@@ -1,7 +1,7 @@
 <?php
 
 // Script : generate_index.php
-// Objectif : Générer un fichier index.html avec les images de chaque dossier + lien de téléchargement zip associé
+// Objectif : Générer un fichier index.html avec les images de chaque dossier + miniatures + lien de téléchargement zip associé
 
 // Dossiers et fichiers à ignorer
 $ignore = ['.', '..', 'generate_index.php', 'index.html', '.git', 'assets'];
@@ -13,6 +13,55 @@ $youtube_url = "https://www.youtube.com/@AgileToolkit";
 $dirs = array_filter(scandir(__DIR__), function($item) use ($ignore) {
     return is_dir($item) && !in_array($item, $ignore);
 });
+
+function createThumbnail($sourcePath, $thumbPath, $maxDim = 400) {
+    $info = getimagesize($sourcePath);
+    $type = $info[2];
+
+    switch ($type) {
+        case IMAGETYPE_JPEG:
+            $img = imagecreatefromjpeg($sourcePath);
+            break;
+        case IMAGETYPE_PNG:
+            $img = imagecreatefrompng($sourcePath);
+            break;
+        case IMAGETYPE_GIF:
+            $img = imagecreatefromgif($sourcePath);
+            break;
+        default:
+            return false;
+    }
+
+    $width = imagesx($img);
+    $height = imagesy($img);
+
+    if ($width > $height) {
+        $newWidth = $maxDim;
+        $newHeight = floor($height * ($maxDim / $width));
+    } else {
+        $newHeight = $maxDim;
+        $newWidth = floor($width * ($maxDim / $height));
+    }
+
+    $tmpImg = imagecreatetruecolor($newWidth, $newHeight);
+    imagecopyresampled($tmpImg, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+    switch ($type) {
+        case IMAGETYPE_JPEG:
+            imagejpeg($tmpImg, $thumbPath);
+            break;
+        case IMAGETYPE_PNG:
+            imagepng($tmpImg, $thumbPath);
+            break;
+        case IMAGETYPE_GIF:
+            imagegif($tmpImg, $thumbPath);
+            break;
+    }
+
+    imagedestroy($img);
+    imagedestroy($tmpImg);
+    return true;
+}
 
 ob_start();
 ?>
@@ -94,11 +143,21 @@ ob_start();
             if (strpos(basename($img), '_') === 0) continue;
 
             $basename = pathinfo($img, PATHINFO_FILENAME);
-            $zipPath = "$dir/$basename.zip";
+            $ext = pathinfo($img, PATHINFO_EXTENSION);
+
+            // ignorer les miniatures existantes
+            if (str_starts_with(basename($img), 'miniature_')) continue;
+
+            $miniature = "$dir/miniature_{$basename}.{$ext}";
+            $zipPath = "$dir/{$basename}.zip";
             $hasZip = file_exists($zipPath);
+
+            if (!file_exists($miniature)) {
+                createThumbnail($img, $miniature);
+            }
         ?>
             <div class="card">
-                <img src="<?= htmlspecialchars($img) ?>" alt="<?= basename($img) ?>" onclick="openLightbox(this.src)">
+                <img src="<?= htmlspecialchars($miniature) ?>" alt="<?= basename($img) ?>" onclick="openLightbox('<?= htmlspecialchars($img) ?>')">
                 <?php if ($hasZip): ?>
                     <a class="download-link" href="<?= htmlspecialchars($zipPath) ?>" download>Télécharger les images</a>
                 <?php endif; ?>
