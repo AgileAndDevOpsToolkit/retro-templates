@@ -3,11 +3,13 @@
 // Script : generate_index.php
 // Objectif : Générer un fichier index.html avec les images de chaque dossier + miniatures + lien de téléchargement zip associé
 
+// Configuration
+$youtubeUrl = "https://www.youtube.com/@AgileToolkit";
+$hubUrl = "https://agileanddevopstoolkit.github.io/agile-toolkit-hub";
+$aboutUrl = "https://github.com/AgileAndDevOpsToolkit/retro-templates";
+
 // Dossiers et fichiers à ignorer
 $ignore = ['.', '..', 'generate_index.php', 'index.html', '.git', 'assets'];
-
-// URL de la chaîne YouTube
-$youtube_url = "https://www.youtube.com/@AgileToolkit";
 
 // Récupérer les dossiers (types de rétro)
 $dirs = array_filter(scandir(__DIR__), function($item) use ($ignore) {
@@ -75,7 +77,7 @@ ob_start();
         body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
         h1 { text-align: center; }
         h2 { margin-top: 40px; color: #333; text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-bottom: 40px; }
         .card {
             display: flex;
             flex-direction: column;
@@ -102,7 +104,6 @@ ob_start();
         .download-link:hover {
             text-decoration: underline;
         }
-
         .lightbox {
             display: none;
             position: fixed;
@@ -121,15 +122,48 @@ ob_start();
             max-width: 80%;
             max-height: 80%;
         }
+        .external-links {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .external-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+        }
+        .external-links img {
+            margin-right: 5px;
+            display: block;
+        }
+        .about-link {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .about-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .about-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1>Galerie de Templates de Rétrospectives Agiles</h1>
-    
-    <div style="text-align: center; margin: 20px 0; display: flex; justify-content: center; align-items: center;">
-        <a href="<?= htmlspecialchars($youtube_url) ?>" target="_blank" style="display: flex; align-items: center;">
-            <img src="./assets/Youtube_logo.png" alt="YouTube" style="margin-right: 5px; height: 18px; width: auto; display: block;">
+    <div class="external-links">
+        <a href="<?= $youtubeUrl ?>" target="_blank">
+            <img src="./assets/Youtube_logo.png" alt="YouTube" style="height: 18px; width: auto;">
             <span style="font-size: 18px;">Youtube Agile Toolkit</span>
+        </a>
+        <a href="<?= $hubUrl ?>" target="_blank">
+            <img src="./assets/hub.png" alt="Hub" style="height: 32px; width: auto;">
+            <span style="font-size: 18px;">Agile Toolkit Hub</span>
         </a>
     </div>
 
@@ -165,6 +199,10 @@ ob_start();
         <?php endforeach; ?>
     </div>
 <?php endforeach; ?>
+
+<div class="about-link">
+    <a href="<?= $aboutUrl ?>" target="_blank">À propos</a>
+</div>
 
 <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
     <img id="lightbox-img" src="">

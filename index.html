@@ -8,7 +8,7 @@
         body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
         h1 { text-align: center; }
         h2 { margin-top: 40px; color: #333; text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-bottom: 40px; }
         .card {
             display: flex;
             flex-direction: column;
@@ -35,7 +35,6 @@
         .download-link:hover {
             text-decoration: underline;
         }
-
         .lightbox {
             display: none;
             position: fixed;
@@ -54,15 +53,48 @@
             max-width: 80%;
             max-height: 80%;
         }
+        .external-links {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .external-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+        }
+        .external-links img {
+            margin-right: 5px;
+            display: block;
+        }
+        .about-link {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .about-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .about-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1>Galerie de Templates de Rétrospectives Agiles</h1>
-    
-    <div style="text-align: center; margin: 20px 0; display: flex; justify-content: center; align-items: center;">
-        <a href="https://www.youtube.com/@AgileToolkit" target="_blank" style="display: flex; align-items: center;">
-            <img src="./assets/Youtube_logo.png" alt="YouTube" style="margin-right: 5px; height: 18px; width: auto; display: block;">
+    <div class="external-links">
+        <a href="https://www.youtube.com/@AgileToolkit" target="_blank">
+            <img src="./assets/Youtube_logo.png" alt="YouTube" style="height: 18px; width: auto;">
             <span style="font-size: 18px;">Youtube Agile Toolkit</span>
+        </a>
+        <a href="https://agileanddevopstoolkit.github.io/agile-toolkit-hub" target="_blank">
+            <img src="./assets/hub.png" alt="Hub" style="height: 32px; width: auto;">
+            <span style="font-size: 18px;">Agile Toolkit Hub</span>
         </a>
     </div>
 
@@ -216,6 +248,10 @@
                                     <a class="download-link" href="Vendredi13/2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.zip" download>Télécharger les images</a>
                             </div>
             </div>
+
+<div class="about-link">
+    <a href="https://github.com/AgileAndDevOpsToolkit/retro-templates" target="_blank">À propos</a>
+</div>
 
 <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
     <img id="lightbox-img" src="">
