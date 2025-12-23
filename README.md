@@ -21,10 +21,10 @@ Ce projet propose une galerie de templates pour rétrospectives agiles, génér�
 
 ## Liens utiles
 
-- [Le site des templates est hébergé et accessible ici](https://agileanddevopstoolkit.github.io/retro-templates/)
-- [Chaîne Youtube Agile Toolkit](https://www.youtube.com/@AgileToolkit)
-- [Agile Toolkit Hub](https://agileanddevopstoolkit.github.io/agile-toolkit-hub)
-- [Soutenir sur Tipeee](https://fr.tipeee.com/agile-toolkit)
+- 🌐 [Le site des templates est hébergé et accessible ici](https://agileanddevopstoolkit.github.io/retro-templates/)
+- 🎥 [Chaîne Youtube Agile Toolkit](https://www.youtube.com/@AgileToolkit)
+- 📚 [Agile Toolkit Hub](https://agileanddevopstoolkit.github.io/agile-toolkit-hub)
+- ❤️ [Soutenir sur Tipeee](https://fr.tipeee.com/agile-toolkit)
 
 ## Structure du projet
 
