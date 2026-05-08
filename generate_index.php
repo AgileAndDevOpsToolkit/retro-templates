@@ -108,19 +108,54 @@ ob_start();
             display: none;
             position: fixed;
             z-index: 999;
-            padding-top: 60px;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
         }
         .lightbox img {
-            margin: auto;
-            display: block;
             max-width: 80%;
             max-height: 80%;
+            display: block;
+            cursor: default;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 110px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .lightbox-arrow:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .lightbox-arrow:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: -2px;
+        }
+        .lightbox-arrow span {
+            font-size: 64px;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .lightbox-arrow-left {
+            left: 0;
+        }
+        .lightbox-arrow-right {
+            right: 0;
         }
         .external-links {
             text-align: center;
@@ -167,20 +202,25 @@ ob_start();
         </a>
     </div>
 
+<?php $galleryMap = []; ?>
 <?php foreach ($dirs as $dir): ?>
+    <?php
+    $rawImages = glob("$dir/*.{png,jpg,jpeg,gif}", GLOB_BRACE);
+    $images = [];
+
+    foreach ($rawImages as $img) {
+        if (strpos(basename($img), '_') === 0) continue;
+        if (str_starts_with(basename($img), 'miniature_')) continue;
+        $images[] = $img;
+    }
+
+    $galleryMap[$dir] = array_values($images);
+    ?>
     <h2><?= htmlspecialchars($dir) ?></h2>
     <div class="gallery">
-        <?php 
-        $images = glob("$dir/*.{png,jpg,jpeg,gif}", GLOB_BRACE);
-        foreach ($images as $img): 
-            // Ignorer les images dont le nom commence par un underscore
-            if (strpos(basename($img), '_') === 0) continue;
-
+        <?php foreach ($images as $index => $img):
             $basename = pathinfo($img, PATHINFO_FILENAME);
             $ext = pathinfo($img, PATHINFO_EXTENSION);
-
-            // ignorer les miniatures existantes
-            if (str_starts_with(basename($img), 'miniature_')) continue;
 
             $miniature = "$dir/miniature_{$basename}.{$ext}";
             $zipPath = "$dir/{$basename}.zip";
@@ -191,7 +231,13 @@ ob_start();
             }
         ?>
             <div class="card">
-                <img src="<?= htmlspecialchars($miniature) ?>" alt="<?= basename($img) ?>" onclick="openLightbox('<?= htmlspecialchars($img) ?>')">
+                <img
+                    src="<?= htmlspecialchars($miniature) ?>"
+                    alt="<?= basename($img) ?>"
+                    data-category="<?= htmlspecialchars($dir, ENT_QUOTES) ?>"
+                    data-index="<?= $index ?>"
+                    onclick="openLightbox(this)"
+                >
                 <?php if ($hasZip): ?>
                     <a class="download-link" href="<?= htmlspecialchars($zipPath) ?>" download>Télécharger les images</a>
                 <?php endif; ?>
@@ -204,15 +250,83 @@ ob_start();
     <a href="<?= $aboutUrl ?>" target="_blank">À propos</a>
 </div>
 
-<div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
+<div id="lightbox" class="lightbox" onclick="handleLightboxBackdropClick(event)">
+    <button id="lightbox-prev" class="lightbox-arrow lightbox-arrow-left" onclick="showPreviousImage(event)" aria-label="Image précédente">
+        <span>&lsaquo;</span>
+    </button>
+    <img id="lightbox-img" src="" alt="Aperçu du template" onclick="event.stopPropagation()">
+    <button id="lightbox-next" class="lightbox-arrow lightbox-arrow-right" onclick="showNextImage(event)" aria-label="Image suivante">
+        <span>&rsaquo;</span>
+    </button>
 </div>
 
 <script>
-    function openLightbox(src) {
-        document.getElementById('lightbox-img').src = src;
-        document.getElementById('lightbox').style.display = 'block';
+    const galleryByCategory = <?= json_encode($galleryMap, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
+    let currentCategory = null;
+    let currentIndex = -1;
+
+    function openLightbox(imageElement) {
+        currentCategory = imageElement.dataset.category;
+        currentIndex = Number(imageElement.dataset.index);
+        renderCurrentImage();
+        document.getElementById('lightbox').classList.add('open');
     }
+
+    function renderCurrentImage() {
+        const images = galleryByCategory[currentCategory] || [];
+        if (!images.length) {
+            closeLightbox();
+            return;
+        }
+
+        document.getElementById('lightbox-img').src = images[currentIndex];
+        updateArrows(images.length);
+    }
+
+    function updateArrows(totalImages) {
+        const prev = document.getElementById('lightbox-prev');
+        const next = document.getElementById('lightbox-next');
+
+        prev.style.display = totalImages > 1 && currentIndex > 0 ? 'flex' : 'none';
+        next.style.display = totalImages > 1 && currentIndex < totalImages - 1 ? 'flex' : 'none';
+    }
+
+    function showPreviousImage(event) {
+        event.stopPropagation();
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        renderCurrentImage();
+    }
+
+    function showNextImage(event) {
+        event.stopPropagation();
+        const images = galleryByCategory[currentCategory] || [];
+        if (currentIndex >= images.length - 1) return;
+        currentIndex++;
+        renderCurrentImage();
+    }
+
+    function handleLightboxBackdropClick(event) {
+        if (event.target.id === 'lightbox') {
+            closeLightbox();
+        }
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+        currentCategory = null;
+        currentIndex = -1;
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
 </script>
 
 </body>

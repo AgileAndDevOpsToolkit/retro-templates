@@ -39,19 +39,54 @@
             display: none;
             position: fixed;
             z-index: 999;
-            padding-top: 60px;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
         }
         .lightbox img {
-            margin: auto;
-            display: block;
             max-width: 80%;
             max-height: 80%;
+            display: block;
+            cursor: default;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 110px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .lightbox-arrow:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .lightbox-arrow:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: -2px;
+        }
+        .lightbox-arrow span {
+            font-size: 64px;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .lightbox-arrow-left {
+            left: 0;
+        }
+        .lightbox-arrow-right {
+            right: 0;
         }
         .external-links {
             text-align: center;
@@ -98,292 +133,712 @@
         </a>
     </div>
 
-    <h2>4L</h2>
+        <h2>4L</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="4L/miniature_2025-11-01 18_56_37-4L_Retro_4L.png" alt="2025-11-01 18_56_37-4L_Retro_4L.png" onclick="openLightbox('4L/2025-11-01 18_56_37-4L_Retro_4L.png')">
+                <img
+                    src="4L/miniature_2025-11-01 18_56_37-4L_Retro_4L.png"
+                    alt="2025-11-01 18_56_37-4L_Retro_4L.png"
+                    data-category="4L"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="4L/2025-11-01 18_56_37-4L_Retro_4L.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_46_46.png" alt="ChatGPT Image 26 avr. 2025, 21_46_46.png" onclick="openLightbox('4L/ChatGPT Image 26 avr. 2025, 21_46_46.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_46_46.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_46_46.png"
+                    data-category="4L"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_46_56.png" alt="ChatGPT Image 26 avr. 2025, 21_46_56.png" onclick="openLightbox('4L/ChatGPT Image 26 avr. 2025, 21_46_56.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_46_56.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_46_56.png"
+                    data-category="4L"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_47_36.png" alt="ChatGPT Image 26 avr. 2025, 21_47_36.png" onclick="openLightbox('4L/ChatGPT Image 26 avr. 2025, 21_47_36.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 26 avr. 2025, 21_47_36.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_47_36.png"
+                    data-category="4L"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_14_47.png" alt="ChatGPT Image 27 sept. 2025, 21_14_47.png" onclick="openLightbox('4L/ChatGPT Image 27 sept. 2025, 21_14_47.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_14_47.png"
+                    alt="ChatGPT Image 27 sept. 2025, 21_14_47.png"
+                    data-category="4L"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_14_55.png" alt="ChatGPT Image 27 sept. 2025, 21_14_55.png" onclick="openLightbox('4L/ChatGPT Image 27 sept. 2025, 21_14_55.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_14_55.png"
+                    alt="ChatGPT Image 27 sept. 2025, 21_14_55.png"
+                    data-category="4L"
+                    data-index="5"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_15_04.png" alt="ChatGPT Image 27 sept. 2025, 21_15_04.png" onclick="openLightbox('4L/ChatGPT Image 27 sept. 2025, 21_15_04.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_15_04.png"
+                    alt="ChatGPT Image 27 sept. 2025, 21_15_04.png"
+                    data-category="4L"
+                    data-index="6"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_15_30.png" alt="ChatGPT Image 27 sept. 2025, 21_15_30.png" onclick="openLightbox('4L/ChatGPT Image 27 sept. 2025, 21_15_30.png')">
+                <img
+                    src="4L/miniature_ChatGPT Image 27 sept. 2025, 21_15_30.png"
+                    alt="ChatGPT Image 27 sept. 2025, 21_15_30.png"
+                    data-category="4L"
+                    data-index="7"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>BingoDemo</h2>
+        <h2>BingoDemo</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="BingoDemo/miniature_Board_Evaluation_Bongo_Demo.png" alt="Board_Evaluation_Bongo_Demo.png" onclick="openLightbox('BingoDemo/Board_Evaluation_Bongo_Demo.png')">
+                <img
+                    src="BingoDemo/miniature_Board_Evaluation_Bongo_Demo.png"
+                    alt="Board_Evaluation_Bongo_Demo.png"
+                    data-category="BingoDemo"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="BingoDemo/Board_Evaluation_Bongo_Demo.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="BingoDemo/miniature_Bpard_Explication_Bingo_Demo.png" alt="Bpard_Explication_Bingo_Demo.png" onclick="openLightbox('BingoDemo/Bpard_Explication_Bingo_Demo.png')">
+                <img
+                    src="BingoDemo/miniature_Bpard_Explication_Bingo_Demo.png"
+                    alt="Bpard_Explication_Bingo_Demo.png"
+                    data-category="BingoDemo"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="BingoDemo/Bpard_Explication_Bingo_Demo.zip" download>Télécharger les images</a>
                             </div>
             </div>
-    <h2>CartePostale</h2>
+        <h2>CartePostale</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="CartePostale/miniature_2025-08-05_Rétro_Carte_Postale_Klaxoon.png" alt="2025-08-05_Rétro_Carte_Postale_Klaxoon.png" onclick="openLightbox('CartePostale/2025-08-05_Rétro_Carte_Postale_Klaxoon.png')">
+                <img
+                    src="CartePostale/miniature_2025-08-05_Rétro_Carte_Postale_Klaxoon.png"
+                    alt="2025-08-05_Rétro_Carte_Postale_Klaxoon.png"
+                    data-category="CartePostale"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="CartePostale/2025-08-05_Rétro_Carte_Postale_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="CartePostale/miniature_ChatGPT_Image_9 août_2025_ 12_03_32.png" alt="ChatGPT_Image_9 août_2025_ 12_03_32.png" onclick="openLightbox('CartePostale/ChatGPT_Image_9 août_2025_ 12_03_32.png')">
+                <img
+                    src="CartePostale/miniature_ChatGPT_Image_9 août_2025_ 12_03_32.png"
+                    alt="ChatGPT_Image_9 août_2025_ 12_03_32.png"
+                    data-category="CartePostale"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>Foot</h2>
+        <h2>Foot</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Foot/miniature_2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png" alt="2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png" onclick="openLightbox('Foot/2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png')">
+                <img
+                    src="Foot/miniature_2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png"
+                    alt="2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png"
+                    data-category="Foot"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Foot/miniature_2025-05-26 01_55_53-Retro Foot_Klaxoon.png" alt="2025-05-26 01_55_53-Retro Foot_Klaxoon.png" onclick="openLightbox('Foot/2025-05-26 01_55_53-Retro Foot_Klaxoon.png')">
+                <img
+                    src="Foot/miniature_2025-05-26 01_55_53-Retro Foot_Klaxoon.png"
+                    alt="2025-05-26 01_55_53-Retro Foot_Klaxoon.png"
+                    data-category="Foot"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Foot/2025-05-26 01_55_53-Retro Foot_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="Foot/miniature_ChatGPT Image 26 mai 2025, 17_53_25.png" alt="ChatGPT Image 26 mai 2025, 17_53_25.png" onclick="openLightbox('Foot/ChatGPT Image 26 mai 2025, 17_53_25.png')">
+                <img
+                    src="Foot/miniature_ChatGPT Image 26 mai 2025, 17_53_25.png"
+                    alt="ChatGPT Image 26 mai 2025, 17_53_25.png"
+                    data-category="Foot"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>Halloween</h2>
+        <h2>Halloween</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Halloween/miniature_2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png" alt="2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png" onclick="openLightbox('Halloween/2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png')">
+                <img
+                    src="Halloween/miniature_2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png"
+                    alt="2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png"
+                    data-category="Halloween"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Halloween/2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="Halloween/miniature_2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png" alt="2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png" onclick="openLightbox('Halloween/2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png')">
+                <img
+                    src="Halloween/miniature_2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png"
+                    alt="2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png"
+                    data-category="Halloween"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Halloween/2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="Halloween/miniature_ChatGPT Image 15 oct. 2025, 09_25_24.png" alt="ChatGPT Image 15 oct. 2025, 09_25_24.png" onclick="openLightbox('Halloween/ChatGPT Image 15 oct. 2025, 09_25_24.png')">
+                <img
+                    src="Halloween/miniature_ChatGPT Image 15 oct. 2025, 09_25_24.png"
+                    alt="ChatGPT Image 15 oct. 2025, 09_25_24.png"
+                    data-category="Halloween"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Halloween/miniature_ChatGPT_Image_19_oct_2025_ 20_55_11.png" alt="ChatGPT_Image_19_oct_2025_ 20_55_11.png" onclick="openLightbox('Halloween/ChatGPT_Image_19_oct_2025_ 20_55_11.png')">
+                <img
+                    src="Halloween/miniature_ChatGPT_Image_19_oct_2025_ 20_55_11.png"
+                    alt="ChatGPT_Image_19_oct_2025_ 20_55_11.png"
+                    data-category="Halloween"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Halloween/miniature_ChatGPT_Image_19_oct_2025_20_56_30.png" alt="ChatGPT_Image_19_oct_2025_20_56_30.png" onclick="openLightbox('Halloween/ChatGPT_Image_19_oct_2025_20_56_30.png')">
+                <img
+                    src="Halloween/miniature_ChatGPT_Image_19_oct_2025_20_56_30.png"
+                    alt="ChatGPT_Image_19_oct_2025_20_56_30.png"
+                    data-category="Halloween"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Halloween/miniature_ChatGPT_Image_19_oct_2025_20_57_21.png" alt="ChatGPT_Image_19_oct_2025_20_57_21.png" onclick="openLightbox('Halloween/ChatGPT_Image_19_oct_2025_20_57_21.png')">
+                <img
+                    src="Halloween/miniature_ChatGPT_Image_19_oct_2025_20_57_21.png"
+                    alt="ChatGPT_Image_19_oct_2025_20_57_21.png"
+                    data-category="Halloween"
+                    data-index="5"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>JeuxOlympiquesDHiver</h2>
+        <h2>JeuxOlympiquesDHiver</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="JeuxOlympiquesDHiver/miniature_2026-02-17_23_41_07-Rétro_JO_d&#039;Hiver.png" alt="2026-02-17_23_41_07-Rétro_JO_d'Hiver.png" onclick="openLightbox('JeuxOlympiquesDHiver/2026-02-17_23_41_07-Rétro_JO_d&#039;Hiver.png')">
-                                    <a class="download-link" href="JeuxOlympiquesDHiver/2026-02-17_23_41_07-Rétro_JO_d&#039;Hiver.zip" download>Télécharger les images</a>
+                <img
+                    src="JeuxOlympiquesDHiver/miniature_2026-02-17_23_41_07-Rétro_JO_d'Hiver.png"
+                    alt="2026-02-17_23_41_07-Rétro_JO_d'Hiver.png"
+                    data-category="JeuxOlympiquesDHiver"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
+                                    <a class="download-link" href="JeuxOlympiquesDHiver/2026-02-17_23_41_07-Rétro_JO_d'Hiver.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="JeuxOlympiquesDHiver/miniature_ChatGPT_Image_12_févr_2026_18_10_04.png" alt="ChatGPT_Image_12_févr_2026_18_10_04.png" onclick="openLightbox('JeuxOlympiquesDHiver/ChatGPT_Image_12_févr_2026_18_10_04.png')">
+                <img
+                    src="JeuxOlympiquesDHiver/miniature_ChatGPT_Image_12_févr_2026_18_10_04.png"
+                    alt="ChatGPT_Image_12_févr_2026_18_10_04.png"
+                    data-category="JeuxOlympiquesDHiver"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>MoodRetrospective</h2>
+        <h2>MoodRetrospective</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="MoodRetrospective/miniature_Mood_Retrospective_Board.png" alt="Mood_Retrospective_Board.png" onclick="openLightbox('MoodRetrospective/Mood_Retrospective_Board.png')">
+                <img
+                    src="MoodRetrospective/miniature_Mood_Retrospective_Board.png"
+                    alt="Mood_Retrospective_Board.png"
+                    data-category="MoodRetrospective"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="MoodRetrospective/Mood_Retrospective_Board.zip" download>Télécharger les images</a>
                             </div>
             </div>
-    <h2>Noël</h2>
+        <h2>Noël</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Noël/miniature_2025-12-16 20_09_32-RétroDeNoël.png" alt="2025-12-16 20_09_32-RétroDeNoël.png" onclick="openLightbox('Noël/2025-12-16 20_09_32-RétroDeNoël.png')">
+                <img
+                    src="Noël/miniature_2025-12-16 20_09_32-RétroDeNoël.png"
+                    alt="2025-12-16 20_09_32-RétroDeNoël.png"
+                    data-category="Noël"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Noël/2025-12-16 20_09_32-RétroDeNoël.zip" download>Télécharger les images</a>
                             </div>
             </div>
-    <h2>Plage</h2>
+        <h2>Plage</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Plage/miniature_2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png" alt="2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png" onclick="openLightbox('Plage/2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png')">
+                <img
+                    src="Plage/miniature_2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png"
+                    alt="2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png"
+                    data-category="Plage"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Plage/2025-08-05 08_20_19-Rétro_Plage_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="Plage/miniature_ChatGPT Image 2 août 2025, 21_12_05.png" alt="ChatGPT Image 2 août 2025, 21_12_05.png" onclick="openLightbox('Plage/ChatGPT Image 2 août 2025, 21_12_05.png')">
+                <img
+                    src="Plage/miniature_ChatGPT Image 2 août 2025, 21_12_05.png"
+                    alt="ChatGPT Image 2 août 2025, 21_12_05.png"
+                    data-category="Plage"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>PositiNegatif</h2>
+        <h2>PositiNegatif</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="PositiNegatif/miniature_2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png" alt="2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png" onclick="openLightbox('PositiNegatif/2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png')">
+                <img
+                    src="PositiNegatif/miniature_2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png"
+                    alt="2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png"
+                    data-category="PositiNegatif"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="PositiNegatif/miniature_ChatGPT Image 26 avr. 2025, 21_48_37.png" alt="ChatGPT Image 26 avr. 2025, 21_48_37.png" onclick="openLightbox('PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_37.png')">
+                <img
+                    src="PositiNegatif/miniature_ChatGPT Image 26 avr. 2025, 21_48_37.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_48_37.png"
+                    data-category="PositiNegatif"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="PositiNegatif/miniature_ChatGPT Image 26 avr. 2025, 21_48_48.png" alt="ChatGPT Image 26 avr. 2025, 21_48_48.png" onclick="openLightbox('PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_48.png')">
+                <img
+                    src="PositiNegatif/miniature_ChatGPT Image 26 avr. 2025, 21_48_48.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_48_48.png"
+                    data-category="PositiNegatif"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>Pâques</h2>
+        <h2>Pâques</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Pâques/miniature_2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png" alt="2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png" onclick="openLightbox('Pâques/2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png')">
+                <img
+                    src="Pâques/miniature_2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png"
+                    alt="2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png"
+                    data-category="Pâques"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Pâques/2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="Pâques/miniature_ChatGPT Image 29 mars 2026, 16_34_41.png" alt="ChatGPT Image 29 mars 2026, 16_34_41.png" onclick="openLightbox('Pâques/ChatGPT Image 29 mars 2026, 16_34_41.png')">
+                <img
+                    src="Pâques/miniature_ChatGPT Image 29 mars 2026, 16_34_41.png"
+                    alt="ChatGPT Image 29 mars 2026, 16_34_41.png"
+                    data-category="Pâques"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Pâques/miniature_ChatGPT Image 31 mars 2026, 11_38_42.png" alt="ChatGPT Image 31 mars 2026, 11_38_42.png" onclick="openLightbox('Pâques/ChatGPT Image 31 mars 2026, 11_38_42.png')">
+                <img
+                    src="Pâques/miniature_ChatGPT Image 31 mars 2026, 11_38_42.png"
+                    alt="ChatGPT Image 31 mars 2026, 11_38_42.png"
+                    data-category="Pâques"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Pâques/miniature_ChatGPT Image 31 mars 2026, 11_39_39.png" alt="ChatGPT Image 31 mars 2026, 11_39_39.png" onclick="openLightbox('Pâques/ChatGPT Image 31 mars 2026, 11_39_39.png')">
+                <img
+                    src="Pâques/miniature_ChatGPT Image 31 mars 2026, 11_39_39.png"
+                    alt="ChatGPT Image 31 mars 2026, 11_39_39.png"
+                    data-category="Pâques"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>RentréeDesClasses</h2>
+        <h2>RentréeDesClasses</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="RentréeDesClasses/miniature_2025-08-14_16_25_52-Rétro_rentrée_des_classes.png" alt="2025-08-14_16_25_52-Rétro_rentrée_des_classes.png" onclick="openLightbox('RentréeDesClasses/2025-08-14_16_25_52-Rétro_rentrée_des_classes.png')">
+                <img
+                    src="RentréeDesClasses/miniature_2025-08-14_16_25_52-Rétro_rentrée_des_classes.png"
+                    alt="2025-08-14_16_25_52-Rétro_rentrée_des_classes.png"
+                    data-category="RentréeDesClasses"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="RentréeDesClasses/2025-08-14_16_25_52-Rétro_rentrée_des_classes.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="RentréeDesClasses/miniature_2026-01-08_Retrospective_Rentrée_des_classes_2.png" alt="2026-01-08_Retrospective_Rentrée_des_classes_2.png" onclick="openLightbox('RentréeDesClasses/2026-01-08_Retrospective_Rentrée_des_classes_2.png')">
+                <img
+                    src="RentréeDesClasses/miniature_2026-01-08_Retrospective_Rentrée_des_classes_2.png"
+                    alt="2026-01-08_Retrospective_Rentrée_des_classes_2.png"
+                    data-category="RentréeDesClasses"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="RentréeDesClasses/2026-01-08_Retrospective_Rentrée_des_classes_2.zip" download>Télécharger les images</a>
                             </div>
             </div>
-    <h2>RolandGarros</h2>
+        <h2>RolandGarros</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="RolandGarros/miniature_2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png" alt="2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png" onclick="openLightbox('RolandGarros/2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png')">
+                <img
+                    src="RolandGarros/miniature_2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png"
+                    alt="2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png"
+                    data-category="RolandGarros"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="RolandGarros/2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="RolandGarros/miniature_2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png" alt="2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png" onclick="openLightbox('RolandGarros/2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png')">
+                <img
+                    src="RolandGarros/miniature_2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png"
+                    alt="2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png"
+                    data-category="RolandGarros"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="RolandGarros/miniature_2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png" alt="2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png" onclick="openLightbox('RolandGarros/2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png')">
-                            </div>
-            </div>
-    <h2>RoseBudThorn</h2>
-    <div class="gallery">
-                    <div class="card">
-                <img src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_39_46.png" alt="ChatGPT Image 11 févr. 2026, 00_39_46.png" onclick="openLightbox('RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_39_46.png')">
-                            </div>
-                    <div class="card">
-                <img src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_40_54.png" alt="ChatGPT Image 11 févr. 2026, 00_40_54.png" onclick="openLightbox('RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_40_54.png')">
-                            </div>
-                    <div class="card">
-                <img src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_47_15.png" alt="ChatGPT Image 11 févr. 2026, 00_47_15.png" onclick="openLightbox('RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_47_15.png')">
-                            </div>
-                    <div class="card">
-                <img src="RoseBudThorn/miniature_ChatGPT Image 23 sept. 2025, 13_33_24.png" alt="ChatGPT Image 23 sept. 2025, 13_33_24.png" onclick="openLightbox('RoseBudThorn/ChatGPT Image 23 sept. 2025, 13_33_24.png')">
-                            </div>
-                    <div class="card">
-                <img src="RoseBudThorn/miniature_ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png" alt="ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png" onclick="openLightbox('RoseBudThorn/ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png')">
+                <img
+                    src="RolandGarros/miniature_2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png"
+                    alt="2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png"
+                    data-category="RolandGarros"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>SpeedRocket</h2>
+        <h2>RoseBudThorn</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="SpeedRocket/miniature_2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png" alt="2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png" onclick="openLightbox('SpeedRocket/2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png')">
+                <img
+                    src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_39_46.png"
+                    alt="ChatGPT Image 11 févr. 2026, 00_39_46.png"
+                    data-category="RoseBudThorn"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
+                            </div>
+                    <div class="card">
+                <img
+                    src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_40_54.png"
+                    alt="ChatGPT Image 11 févr. 2026, 00_40_54.png"
+                    data-category="RoseBudThorn"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
+                            </div>
+                    <div class="card">
+                <img
+                    src="RoseBudThorn/miniature_ChatGPT Image 11 févr. 2026, 00_47_15.png"
+                    alt="ChatGPT Image 11 févr. 2026, 00_47_15.png"
+                    data-category="RoseBudThorn"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
+                            </div>
+                    <div class="card">
+                <img
+                    src="RoseBudThorn/miniature_ChatGPT Image 23 sept. 2025, 13_33_24.png"
+                    alt="ChatGPT Image 23 sept. 2025, 13_33_24.png"
+                    data-category="RoseBudThorn"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
+                            </div>
+                    <div class="card">
+                <img
+                    src="RoseBudThorn/miniature_ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png"
+                    alt="ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png"
+                    data-category="RoseBudThorn"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
+                            </div>
+            </div>
+        <h2>SpeedRocket</h2>
+    <div class="gallery">
+                    <div class="card">
+                <img
+                    src="SpeedRocket/miniature_2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png"
+                    alt="2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png"
+                    data-category="SpeedRocket"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="SpeedRocket/2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.zip" download>Télécharger les images</a>
                             </div>
             </div>
-    <h2>Speedboat</h2>
+        <h2>Speedboat</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_42_39.png" alt="ChatGPT Image 26 avr. 2025, 21_42_39.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_42_39.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_42_39.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_42_39.png"
+                    data-category="Speedboat"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_43_16.png" alt="ChatGPT Image 26 avr. 2025, 21_43_16.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_43_16.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_43_16.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_43_16.png"
+                    data-category="Speedboat"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_45_18.png" alt="ChatGPT Image 26 avr. 2025, 21_45_18.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_45_18.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_45_18.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_45_18.png"
+                    data-category="Speedboat"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_46_05.png" alt="ChatGPT Image 26 avr. 2025, 21_46_05.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_46_05.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_46_05.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_46_05.png"
+                    data-category="Speedboat"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" alt="ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png"
+                    data-category="Speedboat"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_47_57.png" alt="ChatGPT Image 26 avr. 2025, 21_47_57.png" onclick="openLightbox('Speedboat/ChatGPT Image 26 avr. 2025, 21_47_57.png')">
+                <img
+                    src="Speedboat/miniature_ChatGPT Image 26 avr. 2025, 21_47_57.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_47_57.png"
+                    data-category="Speedboat"
+                    data-index="5"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>StartStopContinue</h2>
+        <h2>StartStopContinue</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="StartStopContinue/miniature_2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png" alt="2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png" onclick="openLightbox('StartStopContinue/2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png')">
+                <img
+                    src="StartStopContinue/miniature_2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png"
+                    alt="2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png"
+                    data-category="StartStopContinue"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="StartStopContinue/2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_48_05.png" alt="ChatGPT Image 12 oct. 2025, 13_48_05.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 12 oct. 2025, 13_48_05.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_48_05.png"
+                    alt="ChatGPT Image 12 oct. 2025, 13_48_05.png"
+                    data-category="StartStopContinue"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_48_52.png" alt="ChatGPT Image 12 oct. 2025, 13_48_52.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 12 oct. 2025, 13_48_52.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_48_52.png"
+                    alt="ChatGPT Image 12 oct. 2025, 13_48_52.png"
+                    data-category="StartStopContinue"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_49_10.png" alt="ChatGPT Image 12 oct. 2025, 13_49_10.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 12 oct. 2025, 13_49_10.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_49_10.png"
+                    alt="ChatGPT Image 12 oct. 2025, 13_49_10.png"
+                    data-category="StartStopContinue"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_50_08.png" alt="ChatGPT Image 12 oct. 2025, 13_50_08.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 12 oct. 2025, 13_50_08.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 12 oct. 2025, 13_50_08.png"
+                    alt="ChatGPT Image 12 oct. 2025, 13_50_08.png"
+                    data-category="StartStopContinue"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 16 juin 2025, 23_40_37.png" alt="ChatGPT Image 16 juin 2025, 23_40_37.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 16 juin 2025, 23_40_37.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 16 juin 2025, 23_40_37.png"
+                    alt="ChatGPT Image 16 juin 2025, 23_40_37.png"
+                    data-category="StartStopContinue"
+                    data-index="5"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 23 sept. 2025, 13_10_07.png" alt="ChatGPT Image 23 sept. 2025, 13_10_07.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 23 sept. 2025, 13_10_07.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 23 sept. 2025, 13_10_07.png"
+                    alt="ChatGPT Image 23 sept. 2025, 13_10_07.png"
+                    data-category="StartStopContinue"
+                    data-index="6"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="StartStopContinue/miniature_ChatGPT Image 26 avr. 2025, 21_48_23.png" alt="ChatGPT Image 26 avr. 2025, 21_48_23.png" onclick="openLightbox('StartStopContinue/ChatGPT Image 26 avr. 2025, 21_48_23.png')">
+                <img
+                    src="StartStopContinue/miniature_ChatGPT Image 26 avr. 2025, 21_48_23.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_48_23.png"
+                    data-category="StartStopContinue"
+                    data-index="7"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>TopChef</h2>
+        <h2>TopChef</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="TopChef/miniature_2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png" alt="2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png" onclick="openLightbox('TopChef/2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png')">
+                <img
+                    src="TopChef/miniature_2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png"
+                    alt="2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png"
+                    data-category="TopChef"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="TopChef/2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.zip" download>Télécharger les images</a>
                             </div>
                     <div class="card">
-                <img src="TopChef/miniature_Template_rétrospective_Top_Chef_ChatGPT.png" alt="Template_rétrospective_Top_Chef_ChatGPT.png" onclick="openLightbox('TopChef/Template_rétrospective_Top_Chef_ChatGPT.png')">
+                <img
+                    src="TopChef/miniature_Template_rétrospective_Top_Chef_ChatGPT.png"
+                    alt="Template_rétrospective_Top_Chef_ChatGPT.png"
+                    data-category="TopChef"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>TroisPetitsCochons</h2>
+        <h2>TroisPetitsCochons</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT Image 2 août 2025, 21_11_04.png" alt="ChatGPT Image 2 août 2025, 21_11_04.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT Image 2 août 2025, 21_11_04.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT Image 2 août 2025, 21_11_04.png"
+                    alt="ChatGPT Image 2 août 2025, 21_11_04.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT Image 26 avr. 2025, 21_44_48.png" alt="ChatGPT Image 26 avr. 2025, 21_44_48.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_44_48.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT Image 26 avr. 2025, 21_44_48.png"
+                    alt="ChatGPT Image 26 avr. 2025, 21_44_48.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="1"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT_Image_23_déc_2025_18_28_53.png" alt="ChatGPT_Image_23_déc_2025_18_28_53.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT_Image_23_déc_2025_18_28_53.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT_Image_23_déc_2025_18_28_53.png"
+                    alt="ChatGPT_Image_23_déc_2025_18_28_53.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="2"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png" alt="ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png"
+                    alt="ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="3"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_27_05.png" alt="ChatGPT_Image_9_août_2025_12_27_05.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_27_05.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_27_05.png"
+                    alt="ChatGPT_Image_9_août_2025_12_27_05.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="4"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_28_28.png" alt="ChatGPT_Image_9_août_2025_12_28_28.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_28_28.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_28_28.png"
+                    alt="ChatGPT_Image_9_août_2025_12_28_28.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="5"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_28_59.png" alt="ChatGPT_Image_9_août_2025_12_28_59.png" onclick="openLightbox('TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_28_59.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_ChatGPT_Image_9_août_2025_12_28_59.png"
+                    alt="ChatGPT_Image_9_août_2025_12_28_59.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="6"
+                    onclick="openLightbox(this)"
+                >
                             </div>
                     <div class="card">
-                <img src="TroisPetitsCochons/miniature_TroisPetitsCochons_Claude.png" alt="TroisPetitsCochons_Claude.png" onclick="openLightbox('TroisPetitsCochons/TroisPetitsCochons_Claude.png')">
+                <img
+                    src="TroisPetitsCochons/miniature_TroisPetitsCochons_Claude.png"
+                    alt="TroisPetitsCochons_Claude.png"
+                    data-category="TroisPetitsCochons"
+                    data-index="7"
+                    onclick="openLightbox(this)"
+                >
                             </div>
             </div>
-    <h2>Vendredi13</h2>
+        <h2>Vendredi13</h2>
     <div class="gallery">
                     <div class="card">
-                <img src="Vendredi13/miniature_2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png" alt="2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png" onclick="openLightbox('Vendredi13/2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png')">
+                <img
+                    src="Vendredi13/miniature_2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png"
+                    alt="2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png"
+                    data-category="Vendredi13"
+                    data-index="0"
+                    onclick="openLightbox(this)"
+                >
                                     <a class="download-link" href="Vendredi13/2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.zip" download>Télécharger les images</a>
                             </div>
             </div>
@@ -392,15 +847,83 @@
     <a href="https://github.com/AgileAndDevOpsToolkit/retro-templates" target="_blank">À propos</a>
 </div>
 
-<div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
+<div id="lightbox" class="lightbox" onclick="handleLightboxBackdropClick(event)">
+    <button id="lightbox-prev" class="lightbox-arrow lightbox-arrow-left" onclick="showPreviousImage(event)" aria-label="Image précédente">
+        <span>&lsaquo;</span>
+    </button>
+    <img id="lightbox-img" src="" alt="Aperçu du template" onclick="event.stopPropagation()">
+    <button id="lightbox-next" class="lightbox-arrow lightbox-arrow-right" onclick="showNextImage(event)" aria-label="Image suivante">
+        <span>&rsaquo;</span>
+    </button>
 </div>
 
 <script>
-    function openLightbox(src) {
-        document.getElementById('lightbox-img').src = src;
-        document.getElementById('lightbox').style.display = 'block';
+    const galleryByCategory = {"4L":["4L/2025-11-01 18_56_37-4L_Retro_4L.png","4L/ChatGPT Image 26 avr. 2025, 21_46_46.png","4L/ChatGPT Image 26 avr. 2025, 21_46_56.png","4L/ChatGPT Image 26 avr. 2025, 21_47_36.png","4L/ChatGPT Image 27 sept. 2025, 21_14_47.png","4L/ChatGPT Image 27 sept. 2025, 21_14_55.png","4L/ChatGPT Image 27 sept. 2025, 21_15_04.png","4L/ChatGPT Image 27 sept. 2025, 21_15_30.png"],"BingoDemo":["BingoDemo/Board_Evaluation_Bongo_Demo.png","BingoDemo/Bpard_Explication_Bingo_Demo.png"],"CartePostale":["CartePostale/2025-08-05_Rétro_Carte_Postale_Klaxoon.png","CartePostale/ChatGPT_Image_9 août_2025_ 12_03_32.png"],"Foot":["Foot/2025-05-25 Football-Themed Agile Retrospective Template - Claude Sonnet 4.png","Foot/2025-05-26 01_55_53-Retro Foot_Klaxoon.png","Foot/ChatGPT Image 26 mai 2025, 17_53_25.png"],"Halloween":["Halloween/2025-10-19 20_57_43-Halloween-themed-agile retrospective-template-Claude.png","Halloween/2025-10-20 01_12_59-Rétro_Halloween_Klaxoon.png","Halloween/ChatGPT Image 15 oct. 2025, 09_25_24.png","Halloween/ChatGPT_Image_19_oct_2025_ 20_55_11.png","Halloween/ChatGPT_Image_19_oct_2025_20_56_30.png","Halloween/ChatGPT_Image_19_oct_2025_20_57_21.png"],"JeuxOlympiquesDHiver":["JeuxOlympiquesDHiver/2026-02-17_23_41_07-Rétro_JO_d'Hiver.png","JeuxOlympiquesDHiver/ChatGPT_Image_12_févr_2026_18_10_04.png"],"MoodRetrospective":["MoodRetrospective/Mood_Retrospective_Board.png"],"Noël":["Noël/2025-12-16 20_09_32-RétroDeNoël.png"],"Plage":["Plage/2025-08-05 08_20_19-Rétro_Plage_Klaxoon.png","Plage/ChatGPT Image 2 août 2025, 21_12_05.png"],"PositiNegatif":["PositiNegatif/2025-06-16 23_44_59-Template Rétrospective Positive_Negative_Claude.png","PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_37.png","PositiNegatif/ChatGPT Image 26 avr. 2025, 21_48_48.png"],"Pâques":["Pâques/2026-03-30_19_54_46-Rétro_de_Pâques_Klaxoon.png","Pâques/ChatGPT Image 29 mars 2026, 16_34_41.png","Pâques/ChatGPT Image 31 mars 2026, 11_38_42.png","Pâques/ChatGPT Image 31 mars 2026, 11_39_39.png"],"RentréeDesClasses":["RentréeDesClasses/2025-08-14_16_25_52-Rétro_rentrée_des_classes.png","RentréeDesClasses/2026-01-08_Retrospective_Rentrée_des_classes_2.png"],"RolandGarros":["RolandGarros/2025-06-01 21_23_48-Retro RolangGarros-Klaxoon.png","RolandGarros/2025-06-02 Claude Sonnet 4 - Rétro Roland Garros.png","RolandGarros/2025-06-02 Claude Sonnet 4 - Rétrospective Agile.png"],"RoseBudThorn":["RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_39_46.png","RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_40_54.png","RoseBudThorn/ChatGPT Image 11 févr. 2026, 00_47_15.png","RoseBudThorn/ChatGPT Image 23 sept. 2025, 13_33_24.png","RoseBudThorn/ChatGPT Image 23 sept. 2025, 13_33_24_Grand.png"],"SpeedRocket":["SpeedRocket/2025-06-19 08_12_39-Rétro Speed Rocket - Klaxoon.png"],"Speedboat":["Speedboat/ChatGPT Image 26 avr. 2025, 21_42_39.png","Speedboat/ChatGPT Image 26 avr. 2025, 21_43_16.png","Speedboat/ChatGPT Image 26 avr. 2025, 21_45_18.png","Speedboat/ChatGPT Image 26 avr. 2025, 21_46_05.png","Speedboat/ChatGPT Image 26 avr. 2025, 21_46_27_corrigé.png","Speedboat/ChatGPT Image 26 avr. 2025, 21_47_57.png"],"StartStopContinue":["StartStopContinue/2025-10-12 14_02_11_Start_Stop_Continue_Klaxoon.png","StartStopContinue/ChatGPT Image 12 oct. 2025, 13_48_05.png","StartStopContinue/ChatGPT Image 12 oct. 2025, 13_48_52.png","StartStopContinue/ChatGPT Image 12 oct. 2025, 13_49_10.png","StartStopContinue/ChatGPT Image 12 oct. 2025, 13_50_08.png","StartStopContinue/ChatGPT Image 16 juin 2025, 23_40_37.png","StartStopContinue/ChatGPT Image 23 sept. 2025, 13_10_07.png","StartStopContinue/ChatGPT Image 26 avr. 2025, 21_48_23.png"],"TopChef":["TopChef/2026-04-14_20_06_58-Rétro_Top_Chef_-_Board.png","TopChef/Template_rétrospective_Top_Chef_ChatGPT.png"],"TroisPetitsCochons":["TroisPetitsCochons/ChatGPT Image 2 août 2025, 21_11_04.png","TroisPetitsCochons/ChatGPT Image 26 avr. 2025, 21_44_48.png","TroisPetitsCochons/ChatGPT_Image_23_déc_2025_18_28_53.png","TroisPetitsCochons/ChatGPT_Image_5_mai_2025_ 20_22_26_modifié.png","TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_27_05.png","TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_28_28.png","TroisPetitsCochons/ChatGPT_Image_9_août_2025_12_28_59.png","TroisPetitsCochons/TroisPetitsCochons_Claude.png"],"Vendredi13":["Vendredi13/2025-06-11 01_32_44-Retro Vendredi 13 Klaxoon.png"]};
+    let currentCategory = null;
+    let currentIndex = -1;
+
+    function openLightbox(imageElement) {
+        currentCategory = imageElement.dataset.category;
+        currentIndex = Number(imageElement.dataset.index);
+        renderCurrentImage();
+        document.getElementById('lightbox').classList.add('open');
     }
+
+    function renderCurrentImage() {
+        const images = galleryByCategory[currentCategory] || [];
+        if (!images.length) {
+            closeLightbox();
+            return;
+        }
+
+        document.getElementById('lightbox-img').src = images[currentIndex];
+        updateArrows(images.length);
+    }
+
+    function updateArrows(totalImages) {
+        const prev = document.getElementById('lightbox-prev');
+        const next = document.getElementById('lightbox-next');
+
+        prev.style.display = totalImages > 1 && currentIndex > 0 ? 'flex' : 'none';
+        next.style.display = totalImages > 1 && currentIndex < totalImages - 1 ? 'flex' : 'none';
+    }
+
+    function showPreviousImage(event) {
+        event.stopPropagation();
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        renderCurrentImage();
+    }
+
+    function showNextImage(event) {
+        event.stopPropagation();
+        const images = galleryByCategory[currentCategory] || [];
+        if (currentIndex >= images.length - 1) return;
+        currentIndex++;
+        renderCurrentImage();
+    }
+
+    function handleLightboxBackdropClick(event) {
+        if (event.target.id === 'lightbox') {
+            closeLightbox();
+        }
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+        currentCategory = null;
+        currentIndex = -1;
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
 </script>
 
 </body>
