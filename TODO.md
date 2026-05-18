@@ -1,0 +1,1 @@
+- Ajouter le nombre de catégories et le nombre de templates en tout (en dessous du titre principal de la page)
