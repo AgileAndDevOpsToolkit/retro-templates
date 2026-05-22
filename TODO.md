@@ -1,1 +1,2 @@
 - Ajouter le nombre de catégories et le nombre de templates en tout (en dessous du titre principal de la page)
+- En mode visualisation d'un template, ajouter une croix en haut à droite pour indiquer comment sortir du mode visualisation ?
