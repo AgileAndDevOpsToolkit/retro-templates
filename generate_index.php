@@ -67,6 +67,19 @@ function createThumbnail($sourcePath, $thumbPath, $maxDim = 400) {
     return true;
 }
 
+function deleteOrphanThumbnails($dir) {
+    $thumbnails = glob("$dir/miniature_*.{png,jpg,jpeg,gif}", GLOB_BRACE);
+
+    foreach ($thumbnails as $thumbnail) {
+        $sourceFile = preg_replace('/^miniature_/', '', basename($thumbnail));
+        $sourcePath = "$dir/$sourceFile";
+
+        if (!file_exists($sourcePath)) {
+            @unlink($thumbnail);
+        }
+    }
+}
+
 ob_start();
 ?>
 <!DOCTYPE html>
@@ -224,6 +237,8 @@ ob_start();
 
 <?php foreach ($dirs as $dir): ?>
     <?php
+    deleteOrphanThumbnails($dir);
+
     $images = glob("$dir/*.{png,jpg,jpeg,gif}", GLOB_BRACE);
     $cards = [];
 
