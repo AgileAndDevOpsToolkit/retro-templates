@@ -244,8 +244,15 @@ ob_start();
         $miniature = "$dir/miniature_{$basename}.{$ext}";
         $zipPath = "$dir/{$basename}.zip";
 
-        if (!file_exists($miniature)) {
+        // Regenerer la miniature si elle n'existe pas ou si l'image source est plus recente
+        $mustGenerateMiniature = !file_exists($miniature) || filemtime($img) > filemtime($miniature);
+        if ($mustGenerateMiniature) {
             createThumbnail($img, $miniature);
+        }
+
+        // Si la miniature reste absente (echec de generation), ne pas afficher la carte
+        if (!file_exists($miniature)) {
+            continue;
         }
 
         $cards[] = [
@@ -254,6 +261,10 @@ ob_start();
             'zipPath' => $zipPath,
             'hasZip' => file_exists($zipPath)
         ];
+    }
+
+    if (empty($cards)) {
+        continue;
     }
 
     $galleryByCategory[$dir] = array_map(function($card) {
